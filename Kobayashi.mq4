@@ -22,41 +22,44 @@ input double Bottom_Threshold = 20;
 
 
 input string IIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #1 Settings >>>>>>>>>>>>>>>";
-input int  TimeFrame1=0;
-input int K_period1 = 6;
-input int D_period1 = 1;
-input int S_period1 = 10;
-input int STOCH_1_Price_field = 0;
-input int STOCH_1_MAIN_Ma_Mode = 0;
-input int STOCH_1_SIGNAL_Ma_Mode = 0;
+input int K_period1 = 81;
+input int D_period1 = 5;
+input int S_period1 = 5;
 
-input string IIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #2 Settings >>>>>>>>>>>>>>>>>";
-input int  TimeFrame2=0;
-input int K_period2 = 23;
-input int D_period2 = 1;
-input int S_period2 = 10;
-input int STOCH_2_Price_field = 0;
-input int STOCH_2_MAIN_Ma_Mode = 0;
-input int STOCH_2_SIGNAL_Ma_Mode = 0;
+input string IIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #2 Settings >>>>>>>>>>>>>>>";
+input int K_period2 = 81;
+input int D_period2 = 7;
+input int S_period2 = 6;
 
-input string IIIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #3 Settings >>>>>>>>>>>>>>>>>>>";
-input int  TimeFrame3=0;
-input int K_period3 = 43;
-input int D_period3 = 1;
-input int S_period3 = 10;
-input int STOCH_3_Price_field = 0;
-input int STOCH_3_MAIN_Ma_Mode = 0;
-input int STOCH_3_SIGNAL_Ma_Mode = 0;
+input string IIIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #3 Settings >>>>>>>>>>>>>>>";
+input int K_period3 = 81;
+input int D_period3 = 10;
+input int S_period3 = 7;
 
-input string IIIIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #4 Settings >>>>>>>>>>>>>>>>>>>>>";
-input int  TimeFrame4=0;
-input int K_period4 = 89;
-input int D_period4 = 43;
-input int S_period4 = 10;
-input int STOCH_4_Price_field = 0;
-input int STOCH_4_MAIN_Ma_Mode = 0;
-input int STOCH_4_SIGNAL_Ma_Mode = 0;
+input string IIIIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #4 Settings >>>>>>>>>>>>>>>";
+input int K_period4 = 81;
+input int D_period4 = 13;
+input int S_period4 = 8;
 
+input string IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #5 Settings >>>>>>>>>>>>>>>";
+input int K_period5 = 81;
+input int D_period5 = 21;
+input int S_period5 = 9;
+
+input string IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #6 Settings >>>>>>>>>>>>>>>";
+input int K_period6 = 81;
+input int D_period6 = 36;
+input int S_period6 = 10;
+
+input string IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #7 Settings >>>>>>>>>>>>>>>";
+input int K_period7 = 81;
+input int D_period7 = 72;
+input int S_period7 = 11;
+
+input string IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII=">>> Stochastic #8 Settings >>>>>>>>>>>>>>>";
+input int K_period8 = 81;
+input int D_period8 = 144;
+input int S_period8 = 12;
 
 string thisSymbol;
 
@@ -94,17 +97,17 @@ int getSignal() {
 
   double lines[8];
    
-  lines[0] = iStochastic(NULL,TimeFrame1,K_period1,D_period1,S_period1,STOCH_1_MAIN_Ma_Mode,STOCH_1_Price_field,MODE_MAIN, 0);
-  lines[1] = iStochastic(NULL,TimeFrame1,K_period1,D_period1,S_period1,STOCH_1_SIGNAL_Ma_Mode,STOCH_1_Price_field,MODE_SIGNAL, 0);
+  lines[0] = iStochastic(NULL,0,K_period1,D_period1,S_period1,3,1,MODE_SIGNAL,0);
+  lines[1] = iStochastic(NULL,0,K_period2,D_period2,S_period2,3,1,MODE_SIGNAL, 0);
      
-  lines[2] = iStochastic(NULL,TimeFrame2,K_period2,D_period2,S_period2,STOCH_2_MAIN_Ma_Mode,STOCH_2_Price_field,MODE_MAIN, 0);
-  lines[3] = iStochastic(NULL,TimeFrame2,K_period2,D_period2,S_period2,STOCH_2_SIGNAL_Ma_Mode,STOCH_2_Price_field,MODE_SIGNAL, 0);
+  lines[2] = iStochastic(NULL,0,K_period3,D_period3,S_period3,3,1,MODE_SIGNAL, 0);
+  lines[3] = iStochastic(NULL,0,K_period4,D_period4,S_period4,3,1,MODE_SIGNAL, 0);
   
-  lines[4] = iStochastic(NULL,TimeFrame3,K_period3,D_period3,S_period3,STOCH_3_MAIN_Ma_Mode,STOCH_3_Price_field,MODE_MAIN, 0);
-  lines[5] = iStochastic(NULL,TimeFrame3,K_period3,D_period3,S_period3,STOCH_3_SIGNAL_Ma_Mode,STOCH_3_Price_field,MODE_SIGNAL, 0);
+  lines[4] = iStochastic(NULL,0,K_period5,D_period5,S_period5,3,1,MODE_SIGNAL, 0);
+  lines[5] = iStochastic(NULL,0,K_period6,D_period6,S_period6,3,1,MODE_SIGNAL, 0);
   
-  lines[6] = iStochastic(NULL,TimeFrame4,K_period4,D_period4,S_period4,STOCH_4_MAIN_Ma_Mode,STOCH_4_Price_field,MODE_MAIN, 0);
-  lines[7] = iStochastic(NULL,TimeFrame4,K_period4,D_period4,S_period4,STOCH_4_SIGNAL_Ma_Mode,STOCH_4_Price_field,MODE_SIGNAL, 0);
+  lines[6] = iStochastic(NULL,0,K_period7,D_period7,S_period7,3,1,MODE_SIGNAL, 0);
+  lines[7] = iStochastic(NULL,0,K_period8,D_period8,S_period8,3,1,MODE_SIGNAL, 0);
 
 
   for(int i = 0; i < 8; i++) {
