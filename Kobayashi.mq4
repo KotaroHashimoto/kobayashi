@@ -17,7 +17,7 @@ input double Stop_Loss = 30;
 input double Entry_Lot = 0.1;
 
 input double Upper_Threshold = 80;
-input double Buttom_Threshold = 20;
+input double Bottom_Threshold = 20;
 
 
 
@@ -117,7 +117,7 @@ int getSignal() {
   }
   
   for(int i = 0; i < 8; i++) {
-    if(Buttom_Threshold < lines[i]) {
+    if(Bottom_Threshold < lines[i]) {
       break;
     }
     if(i == 7) {
