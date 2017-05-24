@@ -130,6 +130,22 @@ int getSignal() {
   
   return -1;
 }
+
+
+int getOrdersTotal() {
+
+  int count = 0;
+  if(0 < OrdersTotal()) {  
+    if(OrderSelect(0, SELECT_BY_POS)) {
+      if(!StringCompare(OrderSymbol(), thisSymbol) && OrderMagicNumber() == Magic_Number) {
+        count ++;
+      }
+    }
+  }
+
+  return count;
+}
+
   
 //+------------------------------------------------------------------+
 //| Expert tick function                                             |
@@ -138,7 +154,7 @@ void OnTick() {
 
   int signal = getSignal();
   
-  if(0 < OrdersTotal()) {  
+  if(0 < getOrdersTotal()) {  
     if(OrderSelect(0, SELECT_BY_POS)) {
       if(!StringCompare(OrderSymbol(), thisSymbol) && OrderMagicNumber() == Magic_Number) {
         if(signal == OP_SELL && OrderType() == OP_BUY) {
