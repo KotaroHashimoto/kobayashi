@@ -26,7 +26,7 @@ const string nInd = "Stochastic_Cross_Alert_Normal";
 int getOrdersTotal() {
 
   int count = 0;
-  for(int i = 0; 0 < OrdersTotal(); i++) {  
+  for(int i = 0; i < OrdersTotal(); i++) {  
     if(OrderSelect(i, SELECT_BY_POS)) {
       if(!StringCompare(OrderSymbol(), thisSymbol) && OrderMagicNumber() == Magic_Number) {
         count ++;
