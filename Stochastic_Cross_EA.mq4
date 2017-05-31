@@ -95,7 +95,7 @@ void OnTick()
 
   if(0 < getOrdersTotal()) {  
     for(int i = 0; i < getOrdersTotal(); i++) {
-      if(OrderSelect(0, SELECT_BY_POS)) {
+      if(OrderSelect(i, SELECT_BY_POS)) {
         if(!StringCompare(OrderSymbol(), thisSymbol) && OrderMagicNumber() == Magic_Number) {
           if(signal == OP_SELL && OrderType() == OP_BUY) {
             bool closed = OrderClose(OrderTicket(), OrderLots(), NormalizeDouble(Bid, Digits), 0);
