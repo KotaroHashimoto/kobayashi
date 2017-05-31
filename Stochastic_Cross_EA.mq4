@@ -94,7 +94,7 @@ void OnTick()
   int signal = getSignal();
 
   if(0 < getOrdersTotal()) {  
-    for(int i = 0; i < getOrdersTotal(); i++) {
+    for(int i = 0; i < OrdersTotal(); i++) {
       if(OrderSelect(i, SELECT_BY_POS)) {
         if(!StringCompare(OrderSymbol(), thisSymbol) && OrderMagicNumber() == Magic_Number) {
           if(signal == OP_SELL && OrderType() == OP_BUY) {
